@@ -1,21 +1,28 @@
 const app = Vue.createApp({
   data() {
     return {
-      courseGoalA: "Finish the course and learn Vue ! ",
-      courseGoalB: "Course Finished ",
-      htmlData: "<p>This is from HTML Binding</p>",
-      vueLink: "https://vuejs.org/",
+      counter: 0,
+      name: "",
+      confirmedName: "",
     };
   },
   methods: {
-    outputGoal() {
-      const randomNumber = Math.random();
-      if (randomNumber > 0.5) {
-        return this.courseGoalA;
-      } else {
-        return this.courseGoalB;
-      }
+    add() {
+      this.counter++;
+    },
+    reduce() {
+      this.counter--;
+    },
+    setName(event) {
+      this.name = event.target.value;
+    },
+    confirmInput(event) {
+      this.confirmedName = this.name;
+      event.target.value = "";
+    },
+    submitForm() {
+      alert("Form Submitted ");
     },
   },
 });
-app.mount("#user-goal");
+app.mount("#events");
