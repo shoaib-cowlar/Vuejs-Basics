@@ -3,6 +3,8 @@ const app = Vue.createApp({
     return {
       counter: 0,
       name: "",
+      lastName: "",
+      fullName: "",
     };
   },
   methods: {
@@ -19,12 +21,29 @@ const app = Vue.createApp({
       alert("Form Submitted ");
     },
   },
-  computed: {
-    fullName() {
-      if (this.name === "") {
-        return "";
+  // computed: {
+  //   fullName() {
+  //     if (this.name === "") {
+  //       return "";
+  //     }
+  //     return this.name + " " + "Naseer";
+  //   },
+  // },
+  watch: {
+    name(value) {
+      console.log(value);
+      if (value === " ") {
+        this.fullName = "";
+      } else {
+        this.fullName = value + " " + this.lastName;
       }
-      return this.name + " " + "Naseer";
+    },
+    lastName(value) {
+      if (value === " ") {
+        this.fullName = "";
+      } else {
+        this.fullName = this.name + " " + value;
+      }
     },
   },
 });
