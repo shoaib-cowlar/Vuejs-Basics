@@ -22,13 +22,8 @@
       <button v-on:click="reduce()">Reduce</button>
       <p>Result : {{counter}}</p>
 
-      <input
-        type="text"
-        v-on:input="setName"
-        v-on:keyup.enter="confirmInput"
-        placeholder="Enter Your Name"
-      />
-      <p>Your Full Name : {{confirmedName}}</p>
+      <input type="text" v-model="name" placeholder="Enter Your Name" />
+      <p>Your Full Name : {{fullName}}</p>
 
       <h2>Exploring Event Modifiers</h2>
       <form v-on:submit.prevent="submitForm">
